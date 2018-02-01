@@ -3,6 +3,10 @@
 /* アイキャッチ ・ ギャラリー画像の定義 */
 /*----------------------------------------------------------------------------------------------------*/
 
+
+// アイキャッチ画像の有効化
+add_theme_support('post-thumbnails');
+
 /*
  * step01.独自サイズの画像を定義する
 */
@@ -20,9 +24,9 @@
 
 add_action( 'after_setup_theme', function(){
   // 1000px × 1000px 比較的大きな画像
-  // add_image_size('img_square', 1000, 1000 ,true);
+  add_image_size('img_square', 750, 750 ,true);
   // 黄金比の近似値 ※ 世界的な美の基準  1000×618
-  add_image_size('img_golden_ratio', 1000, 620 ,true);
+  add_image_size('img_golden_ratio', 750, 465 ,true);
   // 白銀比の近似値 ※ 日本人になじみ深い 1000×707
   // add_image_size('img_sailver_ratio', 1000, 700 ,true);
   // 独自定義のサムネイル画像を定義できます。

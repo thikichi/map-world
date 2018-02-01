@@ -103,15 +103,15 @@
 
 <div class="mainbody">
 
-<!-- content0001 -->
+<!-- homeslider -->
 <!--==================================================-->
 
-<div class="content0001">
+<div class="homeslider">
   <div class="container">
-    <div class="content0001-inner">
-      <div class="content0001-inner-1">
-        <div class="contnt0001-main">
-          <div class="content0001-mv-navi">
+    <div class="homeslider-inner">
+      <div class="homeslider-inner-1">
+        <div class="homeslider-main">
+          <div class="homeslider-mv-navi">
             <ul class="slider-nav">
               <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample01.jpg" alt=""></li>
               <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample02.jpg" alt=""></li>
@@ -127,26 +127,52 @@
           </div>
         </div>
       </div>
-      <div class="content0001-inner-2">
-        <h2 class="content0001-title family-serif">
-          最新の記事一覧
-        </h2>
-        ここにはいります。
-      </div>
     </div>
   </div>
-</div><!-- .content0001 -->
+</div><!-- .homeslider -->
 
-<!-- content0002 -->
+<!-- homecontent-1 -->
 <!--==================================================-->
 
-<div class="content0002">
+<div class="homecontent-1">
   <div class="container">
-    <div class="content0002-inner">
-      ここにコンテンツがはいります
+    <div class="homecontent-1-inner">
+      <h2 class="homecontent-title family-serif">最新の記事一覧</h2>
+      <?php if (have_posts()): ?>
+        <div class="row homecontent-row">
+          <?php while(have_posts()) : the_post(); ?>
+            <div class="col-md-4">
+              <div class="homecontent-box">
+                <div class="homecontent-box-thumb">
+                  <img class="img-fluid cener-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
+                </div>
+                <h3 class="homecontent-box-subttl"><?php the_title(); ?></h3>
+                <div class="homecontent-box-text">
+                  <?php the_excerpt(); ?>
+                </div>
+                <div class="homecontent-meta">
+                  <span class="homecontent-meta-author">
+                    <i class="fas fa-user"></i> <?php the_author(); ?>
+                  </span>
+                  <span class="homecontent-meta-category">
+                    カテゴリー: <?php the_category( ' | ', 'multiple' ); ?>
+                  </span>
+                  <span class="homecontent-meta-tag">
+                    <?php the_tags( 'タグ: ', ' | ' ); ?>
+                  </span>
+                </div>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div><!-- .row -->
+      <?php else: ?>
+        <p class="no-article homecontent-no-article">
+          まだ記事の投稿がありません。
+        </p>
+      <?php endif; ?>
     </div>
   </div>
-</div><!-- .content0002 -->
+</div><!-- .homecontent-1 -->
 
 
 
