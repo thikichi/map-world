@@ -141,18 +141,18 @@
       <?php if (have_posts()): ?>
         <div class="row homecontent-row">
           <?php while(have_posts()) : the_post(); ?>
-            <div class="col-md-4">
+            <div class="col-md-4 matchHeight">
               <div class="homecontent-box">
                 <div class="homecontent-box-thumb">
                   <img class="img-fluid cener-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
                 </div>
-                <h3 class="homecontent-box-subttl"><?php the_title(); ?></h3>
+                <h3 class="homecontent-box-subttl family-serif"><?php the_title(); ?></h3>
                 <div class="homecontent-box-text">
                   <?php the_excerpt(); ?>
                 </div>
                 <div class="homecontent-meta">
                   <span class="homecontent-meta-author">
-                    <i class="fas fa-user"></i> <?php the_author(); ?>
+                    <i class="far fa-angle-down"></i> <?php the_author(); ?>
                   </span>
                   <span class="homecontent-meta-category">
                     カテゴリー: <?php the_category( ' | ', 'multiple' ); ?>

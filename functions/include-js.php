@@ -8,6 +8,28 @@
 function wp_enqueue_js() {
 
   /*
+   * module
+  */
+  wp_enqueue_script(
+    'module',
+    get_stylesheet_directory_uri() . '/js/module.js',
+    array('jquery'),
+    false,
+    true
+  );
+
+  /*
+   * matchHeight
+  */
+  wp_enqueue_script(
+    'matchHeight',
+    get_stylesheet_directory_uri() . '/vendor/matchHeight/jquery.matchHeight-min.js',
+    array('jquery'),
+    false,
+    true
+  );
+
+  /*
    * slicknav
   */
   wp_enqueue_script(
