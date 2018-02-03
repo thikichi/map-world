@@ -152,7 +152,7 @@
                 </div>
                 <div class="homecontent-meta">
                   <span class="homecontent-meta-author">
-                    <i class="far fa-angle-down"></i> <?php the_author(); ?>
+                    <i class="fas fa-user"></i> <?php the_author(); ?>
                   </span>
                   <span class="homecontent-meta-category">
                     カテゴリー: <?php the_category( ' | ', 'multiple' ); ?>

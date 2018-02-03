@@ -40,9 +40,13 @@ function wp_enqueue_css() {
   /*
    * font-awesome
   */
+  // wp_enqueue_style(
+  //   'font-awesome',
+  //   get_stylesheet_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
+  // );
   wp_enqueue_style(
     'font-awesome',
-    get_stylesheet_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
+    get_stylesheet_directory_uri() . '/fonts/fontawesome/css/fontawesome-all.min.css'
   );
 
   /*
