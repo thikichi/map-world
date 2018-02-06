@@ -153,6 +153,7 @@ ul#menu-global-navigation > li > a {
   padding: 30px;
 }
 .homecontent-box {
+  display: block;
   margin-bottom: 30px;
 }
 .homecontent-box-subttl {

@@ -177,7 +177,11 @@
                 ?>
 
                 </div>
-                <h3 class="homecontent-box-subttl family-serif"><?php the_title(); ?></h3>
+                <h3 class="homecontent-box-subttl family-serif">
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
+                  </a>
+                </h3>
                 <div class="homecontent-box-text">
                   <?php the_excerpt(); ?>
                 </div>
@@ -205,6 +209,41 @@
     </div>
   </div>
 </div><!-- .homecontent-1 -->
+
+
+<?php
+$args = array(
+  'taxonomy' => 'category',
+);
+$get_terms = get_terms( $args );
+?>
+<?php foreach ($get_terms as $get_term): ?>
+  <?php
+  $link = get_term_link( $get_term->term_id, 'category' );
+  ?>
+  <p>カテゴリー名：　<?php echo esc_html($get_term->name); ?></p>
+  <p>カテゴリーリンク：　<?php echo esc_url($link); ?></p>
+
+  <?php
+  $args = array(
+    'post_type' => 'post',
+    'cat' => $get_term->term_id,
+    'paged' => get_query_var('paged'),
+  );
+  $the_query = new WP_Query( $args );
+  ?>
+  <?php if ( $the_query->have_posts() ): ?>
+    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+      <p>記事タイトル：　<?php the_title(); ?></p>
+      <p>記事抜粋：　<?php the_excerpt(); ?></p>
+    <?php endwhile; ?>
+  <?php else: ?>
+  
+  <?php endif; ?>
+  <?php wp_reset_postdata(); ?>
+
+<?php endforeach; ?>
+
 
 
 
