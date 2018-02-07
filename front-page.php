@@ -138,7 +138,6 @@
   <div class="container">
     <div class="homecontent-1-inner">
       <h2 class="homecontent-title family-serif">最新の記事一覧</h2>
-
       <?php
       $args = array(
         'post_type' => 'post',
@@ -211,6 +210,39 @@
 </div><!-- .homecontent-1 -->
 
 
+<section class="homecontent-2">
+  <div class="container">
+    <div class="homecontent-2-inner">
+      <h2 class="homecontent-title family-serif">カテゴリー別　記事一覧</h2>
+
+      <div class="homecontent-2-catbox">
+        <div class="row">
+          <div class="col-lg-8">
+            <h3 class="homecontent-2-subttl">カテゴリー名</h3>
+            <p class="homecontent-2-meta">JANUARY 31, 2014 / ANDERS NORÉN / 6 COMMENTS</p>
+            <figure id="homecontent-2-figure">
+              <img class="img-fluid center-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
+            </figure>
+            
+          </div>
+          <div class="col-lg-4"></div>
+        </div>
+
+
+        
+
+
+
+
+
+      </div><!-- .homecontent-2-catbox -->
+
+
+    </div>
+  </div>
+</section><!-- .homecontent-2 -->
+
+
 <?php
 $args = array(
   'taxonomy' => 'category',
@@ -223,7 +255,6 @@ $get_terms = get_terms( $args );
   ?>
   <p>カテゴリー名：　<?php echo esc_html($get_term->name); ?></p>
   <p>カテゴリーリンク：　<?php echo esc_url($link); ?></p>
-
   <?php
   $args = array(
     'post_type' => 'post',
