@@ -186,7 +186,7 @@
                 </div>
                 <div class="homecontent-meta">
                   <span class="homecontent-meta-category">
-                    Category: <?php the_category( ' | ', 'multiple' ); ?>
+                    <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
                   </span>　
                   <span class="homecontent-meta-author">
                     <i class="fas fa-user"></i> <?php the_author(); ?>
@@ -213,67 +213,77 @@
 <section class="homecontent-2">
   <div class="container">
     <div class="homecontent-2-inner">
-      <h2 class="homecontent-title family-serif">カテゴリー別　記事一覧</h2>
-
-      <div class="homecontent-2-catbox">
-        <div class="row">
-          <div class="col-lg-8">
-            <h3 class="homecontent-2-subttl">カテゴリー名</h3>
-            <p class="homecontent-2-meta">JANUARY 31, 2014 / ANDERS NORÉN / 6 COMMENTS</p>
-            <figure id="homecontent-2-figure">
-              <img class="img-fluid center-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
-            </figure>
-            
-          </div>
-          <div class="col-lg-4"></div>
+      <div class="row">
+        <div class="col-lg-8">
+          <?php
+          $args = array(
+            'taxonomy' => 'category',
+          );
+          $get_terms = get_terms( $args );
+          ?>
+          <?php foreach ($get_terms as $get_term): ?>
+            <?php
+            $link = get_term_link( $get_term->term_id, 'category' );
+            ?>
+            <div class="homecontent-2-category">
+              <h2 class="homecontent-title family-serif mb-30">
+                <?php echo esc_html($get_term->name); ?> [ <a href="<?php echo esc_url($link); ?>">→</a> ]
+              </h2>
+              <?php
+              $args = array(
+                'post_type' => 'post',
+                'cat' => $get_term->term_id,
+                'paged' => get_query_var('paged'),
+              );
+              $the_query = new WP_Query( $args );
+              ?>
+              <?php if ( $the_query->have_posts() ): ?>
+                <ul class="homecontent-2-catboxies mb-70">
+                  <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                    <li class="mb-30">
+                      <h3 class="homecontent-2-subttl"><?php the_title(); ?></h3>
+                      <div class="homecontent-meta pt-15 mb-15">
+                        <span class="homecontent-meta-category">
+                          <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
+                        </span>　
+                        <span class="homecontent-meta-author">
+                          <i class="fas fa-user"></i> <?php the_author(); ?>
+                        </span>　
+                        <span class="homecontent-meta-tag">
+                          <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
+                        </span>
+                      </div>
+                      <figure id="homecontent-2-figure">
+                        <img class="img-fluid center-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
+                      </figure>
+                      <div class="homecontent-2-excerpt">
+                        <?php the_excerpt(); ?>
+                      </div>
+                      <p class="homecontent-2-button">
+                        <a href="<?php the_permalink(); ?>">記事を見る</a>
+                      </p>
+                    </li>
+                  <?php endwhile; ?>
+                </ul>
+              <?php else: ?>
+                <p class="homecontent-2-noarticle">記事の投稿がありません。</p>
+              <?php endif; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endforeach; ?>
+          </div><!-- .homecontent-2-category -->
         </div>
-
-
-        
-
-
-
-
-
-      </div><!-- .homecontent-2-catbox -->
-
-
+        <div class="col-lg-4">
+          <?php if ( is_active_sidebar('sidebar-1') ) : ?>
+            <?php dynamic_sidebar('sidebar-1'); ?>
+          <?php endif; ?>
+        </div>
+      </div>
     </div>
   </div>
 </section><!-- .homecontent-2 -->
 
 
-<?php
-$args = array(
-  'taxonomy' => 'category',
-);
-$get_terms = get_terms( $args );
-?>
-<?php foreach ($get_terms as $get_term): ?>
-  <?php
-  $link = get_term_link( $get_term->term_id, 'category' );
-  ?>
-  <p>カテゴリー名：　<?php echo esc_html($get_term->name); ?></p>
-  <p>カテゴリーリンク：　<?php echo esc_url($link); ?></p>
-  <?php
-  $args = array(
-    'post_type' => 'post',
-    'cat' => $get_term->term_id,
-    'paged' => get_query_var('paged'),
-  );
-  $the_query = new WP_Query( $args );
-  ?>
-  <?php if ( $the_query->have_posts() ): ?>
-    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-      <p>記事タイトル：　<?php the_title(); ?></p>
-      <p>記事抜粋：　<?php the_excerpt(); ?></p>
-    <?php endwhile; ?>
-  <?php else: ?>
-  
-  <?php endif; ?>
-  <?php wp_reset_postdata(); ?>
 
-<?php endforeach; ?>
 
 
 

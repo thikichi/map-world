@@ -1,27 +1,18 @@
 <?php
-/*
- * step 01.管理画面からサイドバーウィジェットが使えるようにする
+/**
+ * widget setting
 */
-if ( function_exists('register_sidebar') ) {
-
-  // register_sidebar(array(
-  //   'name' => 'サイドバー（新着情報）',
-  //   'id' => 'sidebar-news',
-  //   'before_widget' => "<div class='sidebar sidebar-news'>",
-  //   'before_widget' => '<div id="%1$s" class="widget widget-news %2$s">',
-  //   'after_widget'  => "</div>",
-  //   'before_title'  => "<h2 class='widget-title widget-title-news'>",
-  //   'after_title'   => '</h2>'
-  // ));
-
+add_action( 'widgets_init', 'theme_slug_widgets_init' );
+function theme_slug_widgets_init() {
+  register_sidebar(
+    array(
+      'name' => 'サイドバー',
+      'id' => 'sidebar-1',
+      'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
+      'before_widget' => '<li id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</li>',
+      'before_title'  => '<h2 class="widgettitle">',
+      'after_title'   => '</h2>',
+    )
+  );
 }
-
-/*
- * step 02.管理画面「外観」→「ウィジェット」よりナビゲーションを編集します。
-*/
-
-/*
- * step 03.ウィジェットの設定を反映したい箇所に以下のタグを埋め込んでください。
- * 
- * <?php if(function_exists('dynamic_sidebar')) dynamic_sidebar(); ?>
-*/

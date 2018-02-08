@@ -9,6 +9,4 @@ require_once 'functions/custom-menu.php';
 // navi
 require_once 'functions/add-image-size.php';
 // widget
-// require_once 'functions/widget.php';
-
-
+require_once 'functions/widget.php';
