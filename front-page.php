@@ -141,6 +141,7 @@
       <?php
       $args = array(
         'post_type' => 'post',
+        'post_per_page'=> 3,
         'paged' => get_query_var('paged'),
       );
       $the_query = new WP_Query( $args );
@@ -151,7 +152,6 @@
             <div class="col-md-4 matchHeight">
               <div class="homecontent-box">
                 <div class="homecontent-box-thumb">
-
                 <?php
                 // アイキャッチ画像のIDを取得
                 $eyecatch_id  = get_post_thumbnail_id();
@@ -171,7 +171,7 @@
                   echo '<img class="img-fluid cener-block" src="' . $eyecatch_img[0] . '" alt="' . $eyecatch_alt . '">';
                 } else {
                   // 画像なし
-                  echo '<img class="img-fluid cener-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
+                  echo '<img class="img-fluid mx-auto d-bloc" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
                 }
                 ?>
 
@@ -255,7 +255,7 @@
                         </span>
                       </div>
                       <figure id="homecontent-2-figure">
-                        <img class="img-fluid center-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
+                        <img class="img-fluid mx-auto d-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
                       </figure>
                       <div class="homecontent-2-excerpt">
                         <?php the_excerpt(); ?>
