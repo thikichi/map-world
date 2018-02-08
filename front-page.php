@@ -214,7 +214,7 @@
   <div class="container">
     <div class="homecontent-2-inner">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <?php
           $args = array(
             'taxonomy' => 'category',
@@ -229,6 +229,7 @@
               <h2 class="homecontent-title family-serif mb-30">
                 <?php echo esc_html($get_term->name); ?> [ <a href="<?php echo esc_url($link); ?>">→</a> ]
               </h2>
+
               <?php
               $args = array(
                 'post_type' => 'post',
@@ -268,16 +269,14 @@
               <?php else: ?>
                 <p class="homecontent-2-noarticle">記事の投稿がありません。</p>
               <?php endif; ?>
+
               <?php wp_reset_postdata(); ?>
-            <?php endforeach; ?>
-          </div><!-- .homecontent-2-category -->
+
+            </div><!-- .homecontent-2-category -->
+          <?php endforeach; ?>
         </div>
-        <div class="col-lg-4">
-          <?php if ( is_active_sidebar('sidebar-1') ) : ?>
-            <?php dynamic_sidebar('sidebar-1'); ?>
-          <?php endif; ?>
-        </div>
-      </div>
+
+      </div><!-- .row -->
     </div>
   </div>
 </section><!-- .homecontent-2 -->
