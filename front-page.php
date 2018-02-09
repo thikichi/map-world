@@ -79,31 +79,24 @@
 <nav id="navigation-sp"></nav>
 
 
-<?php
-// var_dump(get_custom_header());
-// https://blog.raizzenet.com/how-to-make-images-of-custom-header-to-slideshow/
-// http://wordpress.hitsuji.me/add-custom-header/
-var_dump(get_uploaded_header_images());
-?>
+
 
 <!-- mainvisual -->
 <!--==================================================-->
 
-
+<?php
+// Get custom header images
+$custom_header_images = get_uploaded_header_images()
+?>
 
 <div class="mainvisual">
   <div class="mainvisual-inner">
     <ul class="slider-for">
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample01.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample02.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample03.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample04.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample05.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample01.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample02.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample03.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample04.jpg);"></li>
-      <li style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/common/sample05.jpg);"></li>
+      <?php
+      foreach ($custom_header_images as $custom_header_image) {
+        echo '<li style="background-image: url(' . $custom_header_image['url'] . ');"></li>';
+      }
+      ?>
     </ul>
   </div>
 </div><!-- .mainvisual -->
@@ -123,16 +116,13 @@ var_dump(get_uploaded_header_images());
         <div class="homeslider-main">
           <div class="homeslider-mv-navi">
             <ul class="slider-nav">
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample01.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample02.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample03.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample04.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample05.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample01.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample02.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample03.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample04.jpg" alt=""></li>
-              <li><img src="<?php echo get_template_directory_uri(); ?>/images/common/sample05.jpg" alt=""></li>
+              <?php
+              foreach ($custom_header_images as $custom_header_image) {
+                echo '<li>';
+                echo '<img src="' . $custom_header_image['url'] . '" alt="">';
+                echo '</li>';
+              }
+              ?>
             </ul>
           </div>
         </div>
