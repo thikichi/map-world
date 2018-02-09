@@ -78,8 +78,18 @@
 </nav><!-- .navigation -->
 <nav id="navigation-sp"></nav>
 
+
+<?php
+// var_dump(get_custom_header());
+// https://blog.raizzenet.com/how-to-make-images-of-custom-header-to-slideshow/
+// http://wordpress.hitsuji.me/add-custom-header/
+var_dump(get_uploaded_header_images());
+?>
+
 <!-- mainvisual -->
 <!--==================================================-->
+
+
 
 <div class="mainvisual">
   <div class="mainvisual-inner">
@@ -174,7 +184,6 @@
                   echo '<img class="img-fluid mx-auto d-bloc" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
                 }
                 ?>
-
                 </div>
                 <h3 class="homecontent-box-subttl family-serif">
                   <a href="<?php the_permalink(); ?>">
@@ -185,6 +194,9 @@
                   <?php the_excerpt(); ?>
                 </div>
                 <div class="homecontent-meta">
+                  <span class="homecontent-meta-time">
+                    <i class="fas fa-calendar-alt"></i> <?php the_time( 'Y年n月j日' ); ?>
+                  </span>　
                   <span class="homecontent-meta-category">
                     <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
                   </span>　
@@ -244,6 +256,9 @@
                     <li class="mb-30">
                       <h3 class="homecontent-2-subttl"><?php the_title(); ?></h3>
                       <div class="homecontent-meta pt-15 mb-15">
+                        <span class="homecontent-meta-time">
+                          <i class="fas fa-calendar-alt"></i> <?php the_time( 'Y年n月j日' ); ?>
+                        </span>　
                         <span class="homecontent-meta-category">
                           <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
                         </span>　
@@ -254,9 +269,20 @@
                           <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
                         </span>
                       </div>
-                      <figure id="homecontent-2-figure">
-                        <img class="img-fluid mx-auto d-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=golden-ratio" alt="">
-                      </figure>
+                      <?php
+                      // Get eycathc image.
+                      $eyecatch_id  = get_post_thumbnail_id();
+                      $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
+                      ?>
+                      <?php if($eyecatch_img): ?>
+                        <figure id="homecontent-2-figure">
+                          <img class="img-fluid mx-auto d-block" src="<?php echo esc_url($eyecatch_img[0]); ?>" alt="">
+                        </figure>
+                      <?php else: ?>
+                        <figure id="homecontent-2-figure">
+                          <img class="img-fluid mx-auto d-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="No Image">
+                        </figure>
+                      <?php endif; ?>
                       <div class="homecontent-2-excerpt">
                         <?php the_excerpt(); ?>
                       </div>

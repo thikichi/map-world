@@ -169,6 +169,12 @@ ul#menu-global-navigation > li > a {
   font-size: 12px;
   padding-top: 5px;
 }
+/* 0～991 */
+@media (max-width: 991px) {
+  .homecontent-1-inner {
+    padding: 30px;
+  }
+}
 
 
 /* homecontent-2 */
@@ -178,7 +184,7 @@ ul#menu-global-navigation > li > a {
 
 }
 .homecontent-2-inner {
-  padding: 80px;
+  padding: 0 80px 80px 80px;
   background-color: #FFF;
 }
 .homecontent-2-subttl {
@@ -187,7 +193,12 @@ ul#menu-global-navigation > li > a {
   margin-bottom: 30px;
   padding-bottom: 15px;*/
 }
-
+/* 0～991 */
+@media (max-width: 991px) {
+  .homecontent-2-inner {
+    padding: 30px;
+  }
+}
 
 
 /* ○○以下（デスクトップファースト） --------------------------------------*/
