@@ -57,10 +57,10 @@
   <div class="container">
     <div class="header-inner">
       <h1 class="header-title family-serif">
-        World Map
+        <?php bloginfo( 'name' ); ?>
       </h1>
       <p class="header-subttl">
-        A Beautiful WordPress Theme For Bloggers
+        <?php bloginfo( 'description' ); ?>
       </p>
     </div>
   </div>
@@ -106,219 +106,138 @@ $custom_header_images = get_uploaded_header_images()
 
 <div class="mainbody">
 
-<!-- homeslider -->
-<!--==================================================-->
+  <!-- homeslider -->
+  <!--==================================================-->
 
-<div class="homeslider">
-  <div class="container">
-    <div class="homeslider-inner">
-      <div class="homeslider-inner-1">
-        <div class="homeslider-main">
-          <div class="homeslider-mv-navi">
-            <ul class="slider-nav">
-              <?php
-              foreach ($custom_header_images as $custom_header_image) {
-                echo '<li>';
-                echo '<img src="' . $custom_header_image['url'] . '" alt="">';
-                echo '</li>';
-              }
-              ?>
-            </ul>
+  <div class="homeslider">
+    <div class="container">
+      <div class="homeslider-inner">
+        <div class="homeslider-inner-1">
+          <div class="homeslider-main">
+            <div class="homeslider-mv-navi">
+              <ul class="slider-nav">
+                <?php
+                foreach ($custom_header_images as $custom_header_image) {
+                  echo '<li>';
+                  echo '<img src="' . $custom_header_image['url'] . '" alt="">';
+                  echo '</li>';
+                }
+                ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div><!-- .homeslider -->
+  </div><!-- .homeslider -->
 
-<!-- homecontent-1 -->
-<!--==================================================-->
+  <!-- homecontent-1 -->
+  <!--==================================================-->
 
-<div class="homecontent-1">
-  <div class="container">
-    <div class="homecontent-1-inner">
-      <h2 class="homecontent-title family-serif">最新の記事一覧</h2>
-      <?php
-      $args = array(
-        'post_type' => 'post',
-        'post_per_page'=> 3,
-        'paged' => get_query_var('paged'),
-      );
-      $the_query = new WP_Query( $args );
-      ?>
-      <?php if ( $the_query->have_posts() ): ?>
-        <div class="row homecontent-row">
-          <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-            <div class="col-md-4 matchHeight">
-              <div class="homecontent-box">
-                <div class="homecontent-box-thumb">
-                <?php
-                // アイキャッチ画像のIDを取得
-                $eyecatch_id  = get_post_thumbnail_id();
-                // mediumサイズの画像内容を取得（引数にmediumをセット）
-                $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
-                // 画像IDから画像のメタ情報を取得
-                $attachment = get_post($eyecatch_id);
-                // 画像キャプション取得
-                $eyecatch_caption = $attachment->post_excerpt;
-                // 画像説明を取得
-                $eyecatch_explain = $attachment->post_content;
-                // 画像alt取得
-                $eyecatch_alt = get_post_meta($eyecatch_id, '_wp_attachment_image_alt', true);
-                // 画像の有無判定
-                if($eyecatch_img) {
-                  // 画像あり
-                  echo '<img class="img-fluid cener-block" src="' . $eyecatch_img[0] . '" alt="' . $eyecatch_alt . '">';
-                } else {
-                  // 画像なし
-                  echo '<img class="img-fluid mx-auto d-bloc" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
-                }
-                ?>
-                </div>
-                <h3 class="homecontent-box-subttl family-serif">
-                  <a href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                  </a>
-                </h3>
-                <div class="homecontent-box-text">
-                  <?php the_excerpt(); ?>
-                </div>
-                <div class="homecontent-meta">
-                  <span class="homecontent-meta-time">
-                    <i class="fas fa-calendar-alt"></i> <?php the_time( 'Y年n月j日' ); ?>
-                  </span>　
-                  <span class="homecontent-meta-category">
-                    <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
-                  </span>　
-                  <span class="homecontent-meta-author">
-                    <i class="fas fa-user"></i> <?php the_author(); ?>
-                  </span>　
-                  <span class="homecontent-meta-tag">
-                    <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
-                  </span>
+  <div class="homecontent-1">
+    <div class="container">
+      <div class="homecontent-1-inner">
+        <h2 class="homecontent-title family-serif">最新の記事一覧</h2>
+        <?php
+        $args = array(
+          'post_type' => 'post',
+          'paged' => get_query_var('paged'),
+        );
+        $the_query = new WP_Query( $args );
+        ?>
+        <?php if ( $the_query->have_posts() ): ?>
+          <div class="row homecontent-row">
+            <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+              <div class="col-md-4 matchHeight">
+                <div class="homecontent-box">
+                  <div class="homecontent-box-thumb">
+                  <?php
+                  // アイキャッチ画像のIDを取得
+                  $eyecatch_id  = get_post_thumbnail_id();
+                  // mediumサイズの画像内容を取得（引数にmediumをセット）
+                  $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
+                  // 画像IDから画像のメタ情報を取得
+                  $attachment = get_post($eyecatch_id);
+                  // 画像キャプション取得
+                  $eyecatch_caption = $attachment->post_excerpt;
+                  // 画像説明を取得
+                  $eyecatch_explain = $attachment->post_content;
+                  // 画像alt取得
+                  $eyecatch_alt = get_post_meta($eyecatch_id, '_wp_attachment_image_alt', true);
+                  // 画像の有無判定
+                  if($eyecatch_img) {
+                    // 画像あり
+                    echo '<img class="img-fluid cener-block" src="' . $eyecatch_img[0] . '" alt="' . $eyecatch_alt . '">';
+                  } else {
+                    // 画像なし
+                    echo '<img class="img-fluid mx-auto d-bloc" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
+                  }
+                  ?>
+                  </div>
+                  <h3 class="homecontent-box-subttl family-serif">
+                    <a href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </h3>
+                  <p class="homecontent-box-subttl-under">
+                    ( Posted date: <?php the_time( 'Y年n月j日' ); ?> )
+                  </p>
+                  <div class="homecontent-box-text">
+                    <?php the_excerpt(); ?>
+                  </div>
+                  <div class="homecontent-meta">
+                    <span class="homecontent-meta-category">
+                      <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
+                    </span>　
+                    <span class="homecontent-meta-author">
+                      <i class="fas fa-user"></i> <?php the_author(); ?>
+                    </span>　
+                    <span class="homecontent-meta-tag">
+                      <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          <?php endwhile; ?>
-        </div><!-- .row -->
-      <?php else: ?>
-        <p class="no-article homecontent-no-article">
-          まだ記事の投稿がありません。
-        </p>
-      <?php endif; ?>
-      <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+          </div><!-- .row -->
+        <?php else: ?>
+          <p class="no-article homecontent-no-article">
+            まだ記事の投稿がありません。
+          </p>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+      </div>
     </div>
-  </div>
-</div><!-- .homecontent-1 -->
-
-
-<section class="homecontent-2">
-  <div class="container">
-    <div class="homecontent-2-inner">
-      <div class="row">
-        <div class="col-lg-12">
-          <?php
-          $args = array(
-            'taxonomy' => 'category',
-          );
-          $get_terms = get_terms( $args );
-          ?>
-          <?php foreach ($get_terms as $get_term): ?>
-            <?php
-            $link = get_term_link( $get_term->term_id, 'category' );
-            ?>
-            <div class="homecontent-2-category">
-              <h2 class="homecontent-title family-serif mb-30">
-                <?php echo esc_html($get_term->name); ?> [ <a href="<?php echo esc_url($link); ?>">→</a> ]
-              </h2>
-
-              <?php
-              $args = array(
-                'post_type' => 'post',
-                'cat' => $get_term->term_id,
-                'paged' => get_query_var('paged'),
-              );
-              $the_query = new WP_Query( $args );
-              ?>
-              <?php if ( $the_query->have_posts() ): ?>
-                <ul class="homecontent-2-catboxies mb-70">
-                  <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <li class="mb-30">
-                      <h3 class="homecontent-2-subttl"><?php the_title(); ?></h3>
-                      <div class="homecontent-meta pt-15 mb-15">
-                        <span class="homecontent-meta-time">
-                          <i class="fas fa-calendar-alt"></i> <?php the_time( 'Y年n月j日' ); ?>
-                        </span>　
-                        <span class="homecontent-meta-category">
-                          <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
-                        </span>　
-                        <span class="homecontent-meta-author">
-                          <i class="fas fa-user"></i> <?php the_author(); ?>
-                        </span>　
-                        <span class="homecontent-meta-tag">
-                          <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
-                        </span>
-                      </div>
-                      <?php
-                      // Get eycathc image.
-                      $eyecatch_id  = get_post_thumbnail_id();
-                      $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
-                      ?>
-                      <?php if($eyecatch_img): ?>
-                        <figure id="homecontent-2-figure">
-                          <img class="img-fluid mx-auto d-block" src="<?php echo esc_url($eyecatch_img[0]); ?>" alt="">
-                        </figure>
-                      <?php else: ?>
-                        <figure id="homecontent-2-figure">
-                          <img class="img-fluid mx-auto d-block" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="No Image">
-                        </figure>
-                      <?php endif; ?>
-                      <div class="homecontent-2-excerpt">
-                        <?php the_excerpt(); ?>
-                      </div>
-                      <p class="homecontent-2-button">
-                        <a href="<?php the_permalink(); ?>">記事を見る</a>
-                      </p>
-                    </li>
-                  <?php endwhile; ?>
-                </ul>
-              <?php else: ?>
-                <p class="homecontent-2-noarticle">記事の投稿がありません。</p>
-              <?php endif; ?>
-
-              <?php wp_reset_postdata(); ?>
-
-            </div><!-- .homecontent-2-category -->
-          <?php endforeach; ?>
-        </div>
-
-      </div><!-- .row -->
-    </div>
-  </div>
-</section><!-- .homecontent-2 -->
-
-
-
-
-
-
-
+  </div><!-- .homecontent-1 -->
 </div><!-- .mainbody -->
 
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <nav class="footer-nav">
+        <?php
+        wp_nav_menu(
+          array(
+            'theme_location'=>'FOOTER NAVIGATION'
+          )
+        );
+        ?>
+      </nav>
+      <p class="footer-copyright">©2018 Chakuromaru.</p>
+    </div><!-- .footer-inner -->
+  </div>
+</footer><!-- .footer -->
+
+
+<?php wp_footer(); ?>
+<script>
+  (function($){
+
+    /* すべての Javascript の後に記述したいスクリプト */
 
 
 
-
-
-  <?php wp_footer(); ?>
-  <script>
-    (function($){
-
-      /* すべての Javascript の後に記述したいスクリプト */
-
-
-
-    })(jQuery);
-  </script>
-  </body>
+  })(jQuery);
+</script>
+</body>
 </html>

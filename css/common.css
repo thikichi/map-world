@@ -159,7 +159,12 @@ ul#menu-global-navigation > li > a {
 .homecontent-box-subttl {
   text-align: center;
   font-size: 24px;
-  margin: 15px 0 10px 0;
+  margin: 15px 0 0 0;
+}
+.homecontent-box-subttl-under {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 .homecontent-box-text {
   font-size: 14px;
@@ -199,6 +204,24 @@ ul#menu-global-navigation > li > a {
     padding: 30px;
   }
 }
+
+/* footer */
+/*--------------------------------------------------*/
+
+.footer {
+  background-color: #EFEFEF;
+  padding-top: 50px;
+}
+.footer-inner {
+  background-color: #000;
+  padding: 50px;
+  color: #FFF;
+}
+.footer-nav {}
+.footer-copyright {
+  text-align: center;
+}
+
 
 
 /* ○○以下（デスクトップファースト） --------------------------------------*/

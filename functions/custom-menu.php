@@ -5,6 +5,8 @@
 
 if ( function_exists('register_nav_menu')) register_nav_menu('GLOBAL NAVIGATION', 'グローバルナビゲーション');
 
+if ( function_exists('register_nav_menu')) register_nav_menu('FOOTER NAVIGATION', 'フッターナビゲーション');
+
 /*
  * step02.次に管理画面「外観」→「メニュー」よりナビゲーションを編集します。
 */
