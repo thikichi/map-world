@@ -1,62 +1,17 @@
 <?php get_header(); ?>
 
-<!-- mainvisual -->
-<!--==================================================-->
-
-<?php
-// Get custom header images
-$custom_header_images = get_uploaded_header_images();
-?>
-
-<div class="mainvisual">
-  <div class="mainvisual-inner">
-    <ul class="slider-for">
-      <?php
-      foreach ($custom_header_images as $custom_header_image) {
-        echo '<li style="background-image: url(' . $custom_header_image['url'] . ');"></li>';
-      }
-      ?>
-    </ul>
-  </div>
-</div><!-- .mainvisual -->
-
 <!-- mainbody -->
 <!--==================================================-->
 
 <div class="mainbody">
 
-  <!-- homeslider -->
-  <!--==================================================-->
-
-  <div class="homeslider">
-    <div class="container">
-      <div class="homeslider-inner">
-        <div class="homeslider-inner-1">
-          <div class="homeslider-main">
-            <div class="homeslider-mv-navi">
-              <ul class="slider-nav">
-                <?php
-                foreach ($custom_header_images as $custom_header_image) {
-                  echo '<li>';
-                  echo '<img src="' . $custom_header_image['url'] . '" alt="">';
-                  echo '</li>';
-                }
-                ?>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- .homeslider -->
-
   <!-- homecontent-1 -->
   <!--==================================================-->
 
-  <div class="homecontent-1 mb-xs-50 mb-lg-100">
+  <div class="homecontent-1 mt-xs-50 mb-xs-50 mb-lg-100">
     <div class="container">
       <div class="homecontent-1-inner">
-        <h2 class="fadeline">
+        <h2 class="fadeline mt-xs-50 mb-xs-70">
           <span class="fadeline-main family-serif">最新の記事一覧</span>
         </h2>
         <?php
