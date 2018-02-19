@@ -1,5 +1,15 @@
 <?php get_header(); ?>
 
+
+<div class="subvisual">
+  <div class="subvisual-inner">
+    <?php
+    // テーマカスタマイザーを使い管理画面よりサブビジュアルを投稿できるようにする
+    // https://theorthodoxworks.com/wordpress/theme-customizer-api-add-section/
+    ?>
+  </div>
+</div>
+
 <!-- mainbody -->
 <!--==================================================-->
 
