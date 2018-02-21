@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-
+<?php
+$theme_custom_img = get_theme_mod( 'mw_theme_option' );
+$subvisual_url = $theme_custom_img['image'][0];
+?>
 <div class="subvisual">
-  <div class="subvisual-inner">
-    <?php
-    // テーマカスタマイザーを使い管理画面よりサブビジュアルを投稿できるようにする
-    // https://theorthodoxworks.com/wordpress/theme-customizer-api-add-section/
-    ?>
+  <div class="subvisual-inner" style="background-image:url(<?php echo esc_url( $subvisual_url ); ?>)">
+
   </div>
 </div>
 
