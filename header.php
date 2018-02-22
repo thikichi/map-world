@@ -46,4 +46,19 @@
 </nav><!-- .navigation -->
 <nav id="navigation-sp"></nav>
 
+<?php if( is_front_page() ): ?>
+<?php else: ?>
 
+  <?php
+  // Get subvisual data from theme customizer.
+  $theme_custom_img = get_theme_mod( 'mw_theme_option' );
+  $subvisual_url = $theme_custom_img['image'][0];
+  $theme_custom_txt = get_option( 'mw_theme_option' );
+  $bg_position_top  = $theme_custom_txt['number'][0] ? $theme_custom_txt['number'][0] : 'center';
+  ?>
+  <div class="subvisual">
+    <div class="subvisual-inner" style="background-image:url(<?php echo esc_url( $subvisual_url ); ?>);background-position: center <?php echo $bg_position_top; ?>%">
+    </div>
+  </div>
+
+<?php endif; ?>

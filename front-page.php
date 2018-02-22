@@ -1,24 +1,24 @@
 <?php get_header(); ?>
 
-<!-- mainvisual -->
-<!--==================================================-->
+  <!-- mainvisual -->
+  <!--==================================================-->
 
-<?php
-// Get custom header images
-$custom_header_images = get_uploaded_header_images();
-?>
+  <?php
+  // Get custom header images
+  $custom_header_images = get_uploaded_header_images();
+  ?>
 
-<div class="mainvisual">
-  <div class="mainvisual-inner">
-    <ul class="slider-for">
-      <?php
-      foreach ($custom_header_images as $custom_header_image) {
-        echo '<li style="background-image: url(' . $custom_header_image['url'] . ');"></li>';
-      }
-      ?>
-    </ul>
-  </div>
-</div><!-- .mainvisual -->
+  <div class="mainvisual">
+    <div class="mainvisual-inner">
+      <ul class="slider-for">
+        <?php
+        foreach ($custom_header_images as $custom_header_image) {
+          echo '<li style="background-image: url(' . $custom_header_image['url'] . ');"></li>';
+        }
+        ?>
+      </ul>
+    </div>
+  </div><!-- .mainvisual -->
 
 <!-- mainbody -->
 <!--==================================================-->
