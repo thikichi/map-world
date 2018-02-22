@@ -103,8 +103,12 @@ ul#menu-global-navigation > li > a {
 /* subvisual */
 /*--------------------------------------------------*/
 
+.subvisual {}
 .subvisual-inner {
-  height: 200px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 
