@@ -111,6 +111,29 @@ ul#menu-global-navigation > li > a {
   
 }
 
+/* sidebar */
+/*--------------------------------------------------*/
+
+.sidebar {}
+.sidebar-main {}
+.widgettitle {
+  font-size: 18px;
+  text-align: center;
+  background-color: #333;
+  color: #FFF;
+  padding: 5px 0;
+  /*font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "ＭＳ 明朝", "MS Mincho", serif !important;*/
+}
+li.widget {
+  margin-bottom: 30px;
+}
+li.widget_categories {}
+li.widget > ul > li {
+  border-bottom: 1px dotted #777;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
 
 /* mainbody */
 /*--------------------------------------------------*/
