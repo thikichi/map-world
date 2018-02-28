@@ -12,8 +12,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <div class="archive-content-1-inner">
-            <h2 class="fadeline mb-xs-70">
+          <div class="archive-content-1-inner mb-xs-50 mb-md-0">
+            <h2 class="fadeline mb-xs-30 mb-lg-40">
               <span class="fadeline-main family-serif">
                 <?php echo get_mw_archive_title(); ?>
               </span>
@@ -24,28 +24,30 @@
                   <div class="col-md-6 matchHeight">
                     <div class="homecontent-box">
                       <div class="homecontent-box-thumb">
-                      <?php
-                      // アイキャッチ画像のIDを取得
-                      $eyecatch_id  = get_post_thumbnail_id();
-                      // mediumサイズの画像内容を取得（引数にmediumをセット）
-                      $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
-                      // 画像IDから画像のメタ情報を取得
-                      $attachment = get_post($eyecatch_id);
-                      // 画像キャプション取得
-                      $eyecatch_caption = $attachment->post_excerpt;
-                      // 画像説明を取得
-                      $eyecatch_explain = $attachment->post_content;
-                      // 画像alt取得
-                      $eyecatch_alt = get_post_meta($eyecatch_id, '_wp_attachment_image_alt', true);
-                      // 画像の有無判定
-                      if($eyecatch_img) {
-                        // 画像あり
-                        echo '<img class="img-fluid cener-block" src="' . $eyecatch_img[0] . '" alt="' . $eyecatch_alt . '">';
-                      } else {
-                        // 画像なし
-                        echo '<img class="img-fluid mx-auto d-bloc" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
-                      }
-                      ?>
+                        <a href="<?php the_permalink(); ?>">
+                        <?php
+                        // アイキャッチ画像のIDを取得
+                        $eyecatch_id  = get_post_thumbnail_id();
+                        // mediumサイズの画像内容を取得（引数にmediumをセット）
+                        $eyecatch_img = wp_get_attachment_image_src( $eyecatch_id , 'img_golden_ratio' );
+                        // 画像IDから画像のメタ情報を取得
+                        $attachment = get_post($eyecatch_id);
+                        // 画像キャプション取得
+                        $eyecatch_caption = $attachment->post_excerpt;
+                        // 画像説明を取得
+                        $eyecatch_explain = $attachment->post_content;
+                        // 画像alt取得
+                        $eyecatch_alt = get_post_meta($eyecatch_id, '_wp_attachment_image_alt', true);
+                        // 画像の有無判定
+                        if($eyecatch_img) {
+                          // 画像あり
+                          echo '<img class="img-fluid cener-block img-scale" src="' . $eyecatch_img[0] . '" alt="' . $eyecatch_alt . '">';
+                        } else {
+                          // 画像なし
+                          echo '<img class="img-fluid mx-auto d-bloc img-scale" src="http://placehold.jp/72/3d4070/ffffff/750x465.png?text=No Image" alt="">';
+                        }
+                        ?>
+                        </a>
                       </div>
                       <h3 class="homecontent-box-subttl family-serif">
                         <a href="<?php the_permalink(); ?>">

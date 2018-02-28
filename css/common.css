@@ -9,7 +9,7 @@ a:hover {
 dl, ol, ul, p {
     margin: 0;
 }
-body {
+body.home {
   background-color: #EFEFEF;
 }
 body.logged-in {
@@ -132,16 +132,57 @@ li.widget > ul > li {
   border-bottom: 1px dotted #777;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  position: relative;
+}
+li.widget a {
+  display: block;
+  padding-left: 1em;
+}
+li.widget > ul > li::before {
+  position: absolute;
+  content: '\f105';
+  font-family: FontAwesome;
+  left: 0;
+  top: 0;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+li.widget > ul > li:hover::before {
+  left: 0.25em;
 }
 
 
 /* mainbody */
 /*--------------------------------------------------*/
 
-.mainbody {
+body.home .mainbody {
   background-color: #EFEFEF;
-/*  min-height: 500px;*/
 }
+
+/* component css */
+/*--------------------------------------------------*/
+
+.img-scale {
+
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.img-scale:hover {
+  -webkit-transform: scale(1.04);
+     -moz-transform: scale(1.04);
+      -ms-transform: scale(1.04);
+       -o-transform: scale(1.04);
+          transform: scale(1.04);
+  -webkit-box-shadow: 0 10px 48px rgba(0, 63, 126, .19), 0 6px 100px rgba(30, 32, 34, .23);
+  box-shadow:         0 10px 48px rgba(0, 63, 126, .19), 0 6px 100px rgba(30, 32, 34, .23);
+}
+
 
 /* homeslider */
 /*--------------------------------------------------*/
@@ -366,6 +407,22 @@ li.widget > ul > li {
 .footer-nav .sub-menu > li:last-child::before {
   content: '└';
 }
+
+/* single */
+/*--------------------------------------------------*/
+
+.single-meta {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* ○○以下（デスクトップファースト） --------------------------------------*/
