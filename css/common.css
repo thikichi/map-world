@@ -226,6 +226,57 @@ body.home .mainbody {
   }
 }
 
+/* posts-navigation */
+/*--------------------------------------------------*/
+
+.pagination {
+  display: table;
+  width: 70%;
+  margin: auto;
+}
+.pagination-next,
+.pagination-previous {
+  display: table-cell;
+}
+.pagination-next a,
+.pagination-previous a {
+  color: #666;
+}
+.pagination-previous {
+  position: relative;
+  text-align: left;
+}
+.pagination-previous-inner::before,
+.pagination-next-inner::after {
+  -webkit-transition: all .25s linear;
+     -moz-transition: all .25s linear;
+      -ms-transition: all .25s linear;
+       -o-transition: all .25s linear;
+          transition: all .25s linear;
+  font-family: fontAwesome;
+  position: absolute;
+}
+.pagination-previous-inner::before {
+  content: '\f100';
+  left: -1.0em;
+}
+.pagination-previous-inner:hover::before {
+  left: -1.5em;
+}
+.pagination-previous-inner a {
+  display: block;
+}
+.pagination-next-inner {
+  position: relative;
+  text-align: right;
+}
+.pagination-next-inner::after {
+  content: '\f101';
+  right: -1.0em;
+}
+.pagination-next-inner:hover::after {
+  right: -1.5em;
+}
 
 /* fadeline */
 /*--------------------------------------------------*/

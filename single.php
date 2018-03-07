@@ -20,28 +20,38 @@
                 </span>
               </h2>
               <div class="single-meta mb-xs-30">
-                ( 
                 <span class="single-meta-category">
-                  <i class="fas fa-folder"></i> <?php the_category( ' | ', 'multiple' ); ?>
+                  <i class="fas fa-folder"></i> <?php the_category( ' / ', 'multiple' ); ?>
                 </span>　
                 <span class="single-meta-author">
                   <i class="fas fa-user"></i> <?php the_author(); ?>
                 </span>　
                 <span class="single-meta-tag">
-                  <?php the_tags( '<i class="fas fa-tags"></i> ', ' | ' ); ?>
-                </span>
+                  <?php the_tags( '<i class="fas fa-tags"></i> ', ' / ' ); ?>
+                </span>　
                 <span class="single-meta-date">
-                  Posted date: <?php the_time( 'Y年n月j日' ); ?>
+                  <i class="far fa-calendar-alt"></i> <?php the_time( 'Y/n/j' ); ?>
                 </span>
-                )
               </div>
               <div class="single-content">
                 <?php the_content(); ?>
               </div>
 
-              <div class="single-nav clearfix">
-                <div class="single-nav-prev"><?php next_post_link('&laquo; %link'); ?></div>
-                <div class="single-nav-next"><?php previous_post_link('%link &raquo;'); ?></div>
+              <div class="pagination mt-30">
+                <div class="pagination-previous">
+                  <?php if( get_previous_post_link() ): ?>
+                    <div class="pagination-previous-inner">
+                      <?php previous_post_link('%link', '前の投稿');?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+                <div class="pagination-next">
+                  <?php if( get_next_post_link() ): ?>
+                    <div class="pagination-next-inner">
+                      <?php next_post_link('%link', '次の投稿');?>
+                    </div>
+                  <?php endif; ?>
+                </div>
               </div>
 
             <?php else: ?>

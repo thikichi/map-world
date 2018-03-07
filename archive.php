@@ -75,6 +75,26 @@
                   </div>
                 <?php endwhile; ?>
               </div><!-- .row -->
+
+
+              <div class="pagination mt-30">
+                <div class="pagination-previous">
+                  <?php if( get_previous_posts_link() ): ?>
+                    <div class="pagination-previous-inner">
+                      <?php previous_posts_link('前の投稿');?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+                <div class="pagination-next">
+                  <?php if( get_next_posts_link() ): ?>
+                    <div class="pagination-next-inner">
+                      <?php next_posts_link('次の投稿');?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+              </div>
+
+
             <?php else: ?>
               <p class="no-article homecontent-no-article">
                 まだ記事の投稿がありません。
