@@ -12,8 +12,9 @@ dl, ol, ul, p {
 body.home {
   background-color: #EFEFEF;
 }
-body.logged-in {
-  padding-top: 32px;
+
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
 }
 
 /* header */
@@ -21,7 +22,7 @@ body.logged-in {
 
 .header {
   border-bottom: 1px solid #CCC;
-  padding: 10px 0 5px 0;
+  padding: 15px 0 10px 0;
   background-color: #FFF;
 }
 .header-inner {}
@@ -122,6 +123,7 @@ ul#menu-global-navigation > li > a {
   background-color: #333;
   color: #FFF;
   padding: 5px 0;
+  margin-bottom: 7px;
   /*font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "ＭＳ 明朝", "MS Mincho", serif !important;*/
 }
 li.widget {

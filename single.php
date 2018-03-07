@@ -14,7 +14,7 @@
         <div class="col-lg-9">
           <div class="single-content-1-inner mb-xs-50 mb-md-0">
             <?php if ( have_posts() ): the_post(); ?>
-              <h2 class="fadeline mb-xs-15">
+              <h2 class="fadeline mb-xs-20">
                 <span class="fadeline-main family-serif">
                   <?php the_title(); ?>
                 </span>
