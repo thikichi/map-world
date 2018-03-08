@@ -50,7 +50,7 @@ h1,h2,h3,h4,h5,h6,p {
 ul#menu-global-navigation {
   display: table;
   margin: auto;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 ul#menu-global-navigation > li {
   display: table-cell;
@@ -61,13 +61,8 @@ ul#menu-global-navigation > li:not(:last-child)::after {
   content: '/';
   position: absolute;
   right: 0;
-  top: 0;
+  top: 5px;
 }
-ul#menu-global-navigation > li > a {
-  display: block;
-  padding: 0 30px;
-}
-
 /* 992～∞（lg）*/
 @media (min-width: 992px) {
   #navigation-sp {
@@ -83,6 +78,42 @@ ul#menu-global-navigation > li > a {
     display: none;
   }
 }
+
+
+
+
+
+#navigation-pc .menu > li > a {
+  display: block;
+  padding: 7px 30px;
+}
+/* submenu */
+#navigation-pc .menu-item-has-children {
+  position: relative;
+}
+#navigation-pc ul.sub-menu {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+}
+#navigation-pc ul.sub-menu > li {
+  padding-bottom: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+#navigation-pc ul.sub-menu > li > a {
+  display: block;
+  background-color: #FFF;
+  text-align: center;
+  padding: 7px 0;
+  border: 1px solid #DDD;
+}
+#navigation-pc ul.sub-menu ul.sub-menu {
+  left: 100%;
+  top: 0;
+}
+
 
 /* mainvisual */
 /*--------------------------------------------------*/
